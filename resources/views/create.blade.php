@@ -4,6 +4,17 @@
 
 @section('content')
 
+
+@if ($errors->any())
+            <div class="alert alert-danger alert-fixed-bottom">
+                <strong>Datos incorrectos:</strong>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+    @endif
     <table cellpadding="3" cellspaceing="5">
         <tr>
             <th colspan="4">Crear nuevo servicio</th>
@@ -24,16 +35,7 @@
         </form>
     </table>
 
-    @if ($errors->any())
-            <div class="alert alert-danger alert-fixed-bottom">
-                <strong>Datos incorrectos:</strong>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-    @endif
+    
 
 @endsection
 

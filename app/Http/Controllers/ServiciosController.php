@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Servicio;
+use App\Http\Requests\CreateServiciosRequest;
 
 class ServiciosController extends Controller
 {
@@ -17,19 +18,7 @@ class ServiciosController extends Controller
         $servicios = Servicio::latest()->paginate();
 
         return view('servicios', compact('servicios'));
-        // $servicios = Servicio::latest()->paginate(10);
 
-
-        // $servicios=Servicio::latest('titulo')->get();
-        // $servicios=Servicio::get();
-        // $servicios = Servicio::latest()->paginate();
-        
-        // $servicios=[
-        //     ['titulo'=>'Mantenimiento'],
-        //     ['titulo'=>'Afinamiento'],
-        //     ['titulo'=>'cambio de aceite'],
-        //     ['titulo'=>'Lavado tipo salón'],
-        // ];
         
     }
     public function show($id){
@@ -41,29 +30,10 @@ class ServiciosController extends Controller
     public function create(){
         return view('create');
     }
-    public function store(){
-        
-        
-        $camposv = request()->validate([
-            'titulo'=> 'required',
-            'descripcion'=> 'required'
-        ]);
+    public function store(CreateServiciosRequest $request){
 
-        Servicio::create($camposv);
+        Servicio::create($request->validated());
 
         return redirect()->route('servicios');     
-        
-        // metodo1
-        // $titulo = request('titulo');
-        // $descripcion = request('descripcion');
-
-        //almacenamos en la bd usando el modelo Servicio
-        // Servicio::create([
-            // 'titulo'=>$titulo,
-            // 'descripcion'=>$descripcion
-        // ]);
-
-        // return redirect()->route('servicios');
-        // return redirect('/servicios');
     }
 }
