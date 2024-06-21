@@ -36,4 +36,26 @@ class ServiciosController extends Controller
 
         return redirect()->route('servicios');     
     }
+
+    public function edit(Servicio $id){
+        return view('edit',[
+            'servicio'=>$id
+        ]);     
+    }
+
+    // public function update(Servicio $id){
+    //     $id->update([
+    //         'titulo'=> request('titulo'),
+    //         'descripcion'=> request('descripcion')
+    //     ]);
+        
+    //     return redirect()->route('servicios.show',$id);     
+    // }
+
+    public function update(Servicio $servicio, CreateServiciosRequest $request){
+
+        $servicio->update($request->validated());
+
+        return redirect()->route('servicios.show',$servicio);     
+    }
 }

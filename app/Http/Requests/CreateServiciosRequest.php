@@ -22,13 +22,13 @@ class CreateServiciosRequest extends FormRequest
     public function rules(){
         return [
             'titulo' =>'required',
-            'descipcion' =>'required'
+            'descripcion' =>'required'
         ];
     }
     public function messages(){
         return [
             'titulo.required' =>'Se necesita un título',
-            'descipcion.required' =>'Ingresa una descrpción'
+            'descripcion.required' =>'Ingresa una descripción',
         ];
     }
 }

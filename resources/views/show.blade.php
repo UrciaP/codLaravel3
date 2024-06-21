@@ -6,7 +6,9 @@
 @section('content')
     <table class="table table-striped">
         <tr>
-            <th colspan="4">{{$servicio->titulo}}</th>
+            <th colspan="4">{{$servicio->titulo}}
+                <a href="{{route('servicios.edit',$servicio)}}">editar</a>
+            </th>
         </tr>
         <tr>
             <td colspan="4">{{$servicio->descripcion}}</td>
