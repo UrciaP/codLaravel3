@@ -30,7 +30,7 @@
                 <td><input type="text" name="descripcion" value="{{ old('descripcion') }}"></td>
             </tr>
             <tr>
-                <td colspan="2"><button>guardar</button></td>
+                <td colspan="2"><button>click para guardar</button></td>
             </tr>
         </form>
     </table>
